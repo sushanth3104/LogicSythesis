@@ -128,6 +128,33 @@ def gen_minterm(cube,literal_list):
 
 def main():
 
+    Welcome_text = """
+    ----------------------------------------------------------------------------------------------------------
+    
+    Python script to obtain Cofactor of a given Boolean expression wrt cube
+
+    ----------------------------------------------------------------------------------------------------------
+
+    The script is written using few assumptions : 
+
+    1. Normal variables are represented using lower case variables (a,b,x,y)
+    2. Complement variables are represented using Upper case variables (A,B,X,Y)
+
+    ----------------------------------------------------------------------------------------------------------
+    
+    Upon program start the user is expected to input the total number of distinct varibles being used i,e.
+    if the variables use are x,y and z then the input must be xyz without any spaces
+    
+    Then the boolean expression must be entered in the SOP form(seperated by (+) and without spaces)
+    
+    At the last, the user is expected to input the cube for which cofactor needs to be obtained
+    
+    Upon entering all the inputs, the program will return minimized cofactor
+
+    ----------------------------------------------------------------------------------------------------------
+
+    """
+    print(Welcome_text)
     variables =  input("    Enter the variables: ")
     expression = input("    Enter the boolean expression: ")
     cube_exp   = input("    Enter the cube for factorization: ")
@@ -150,12 +177,16 @@ def main():
         if(len(cofact)==0):
             expression = 0
             break
-        else :    
+        elif len(cofact) == 2**(len(fact_literal_list)):
+            expression = 1
+            break
+        else:
             expression = min_to_cube(minimize_function(cofact),fact_literal_list)
 
         literal_list = fact_literal_list
 
-    print("Cofactor =  ",expression)
+    print("    Cofactor =  ",expression)
+    print("\n\n")
 
 # Main function 
 

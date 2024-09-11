@@ -170,17 +170,18 @@ def main():
     os.system("clear")
     
     Welcome_text = """
-    
+
+    ----------------------------------------------------------------------------------------------------------
     Python script to obtain Smoothing, Consensus and Boolean Difference for a Boolean Function 
-    
+    ----------------------------------------------------------------------------------------------------------
     Smoothing           = f_a + f_A
     Consensus           = f_a & f_A
     Boolean Difference  = Smoothing & (Consensus)'
-    
+    ----------------------------------------------------------------------------------------------------------
     The script is written using few assumptions : 
     1. Normal variables are represented using lower case variables (a,b,x,y)
     2. Complement variables are represented using Upper case variables (A,B,X,Y)
-    
+    ----------------------------------------------------------------------------------------------------------
     Upon program start the user is expected to input the total number of distinct varibles being used i,e.
     if the variables use are x,y and z then the input must be xyz without any spaces
     
@@ -190,12 +191,13 @@ def main():
     are expected( lower case literal is expected ).
     
     Upon entering all the inputs, the program will return minimized Smoothing, Consensus and Boolean Difference
-    
+    ----------------------------------------------------------------------------------------------------------
     """
     print(Welcome_text)
     variables =  input("    Enter the variables: ")
     expression = input("    Enter the boolean expression: ")
     fact_var   = input("    Enter the variable for factorization: ")
+
 
 
     literal_list = []
@@ -226,6 +228,13 @@ def main():
 
     BooleanDiference = booldiff(smoothing,consensus)
 
+    if BooleanDiference == 0:
+        final_BooleanDifference = 0
+    else:
+        final_BooleanDifference = min_to_cube(minimize_function(BooleanDiference),fact_literal_list)
+
+    
+
 
     # These Print statements are for intermdiate steps : Minterms Identification in each step
     
@@ -240,9 +249,9 @@ def main():
     
     
     print("\n")
-    print("smoothing function =",min_to_cube(minimize_function(smoothing),fact_literal_list))
-    print("\nConsensus function =",final_consensus)
-    print("\nBoolean Difference function = ",min_to_cube(minimize_function(BooleanDiference),fact_literal_list))
+    print("   smoothing function =",min_to_cube(minimize_function(smoothing),fact_literal_list))
+    print("\n   Consensus function =",final_consensus)
+    print("\n   Boolean Difference function = ",final_BooleanDifference)
     print("\n\n")
 
 
