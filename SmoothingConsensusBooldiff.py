@@ -184,7 +184,7 @@ def main():
     Upon program start the user is expected to input the total number of distinct varibles being used i,e.
     if the variables use are x,y and z then the input must be xyz without any spaces
     
-    Then the boolean expression must be entered in the SOP form( not necessarily canonical SOP )
+    Then the boolean expression must be entered in the SOP form(seperated by (+) and without spaces)
     
     At the last, the user is expected to input the variable for which Smoothing, Consensus and Boolean Difference 
     are expected( lower case literal is expected ).

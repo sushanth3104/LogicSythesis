@@ -36,7 +36,7 @@ def main():
     1. Normal variables are represented using lower case variables (a,b,x,y)
     2. Complement variables are represented using Upper case variables (A,B,X,Y)
     
-    Upon start of script, the user is expected to input the Boolean expression.
+    Upon start of script, the user is expected to input the Boolean expression(seperated by (+) and without spaces).
     Ex : Ab+Cd+abD
     
     Next, user is expcted to input the cube for which the cofactor for given boolean expression must be computed
